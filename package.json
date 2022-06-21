@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "-": "^0.0.1",
+    "@angular/material": "^14.0.1",
+    "save": "^2.5.0"
+  }
+}

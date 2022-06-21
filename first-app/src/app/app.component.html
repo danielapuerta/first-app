@@ -1,0 +1,6 @@
+<!-- In this file, we will build our components or html elements -->
+<app-header></app-header>
+<main>
+  <app-post-create (postCreated)="onPostAdded($event)"></app-post-create>
+  <app-post-list [posts]="Storedposts"></app-post-list>
+</main>

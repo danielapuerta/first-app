@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { Post } from '../post.model';
 import { NgForm } from '@angular/forms';
 import{PostService} from '../posts.service';
@@ -15,6 +15,7 @@ export class PostCreateComponent {
   enteredTitle = '';
   enteredContent = '';
 
+  constructor(public postsService: PostService){}
 
   onAddPost(form: NgForm) {
     if (form.invalid) {

@@ -46,5 +46,4 @@ import {PostService} from './posts/posts.service';
 
 })
 
-
 export class AppModule { }

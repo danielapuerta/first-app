@@ -1,7 +1,5 @@
 const http = require('http');
 const app = require('./backend/app');
-app.set('port',port);
-const server = http.createServer(app);
 
 const normalizePort = val => {
   var port = parseInt(val, 10);
@@ -47,5 +45,8 @@ const onListening = () => {
 const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
-
+const server = http.createServer(app);
+server.on("error", onError);
+server.on("listening", onListening);
 server.listen(port);
+

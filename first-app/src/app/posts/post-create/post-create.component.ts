@@ -17,14 +17,10 @@ export class PostCreateComponent {
 
   constructor(public postsService: PostService){}
 
-  onAddPost(form: NgForm) {
-    if (form.invalid) {
+  onAddPost( form: NgForm){
+    if(form.invalid){
       return;
     }
-    const post: Post = {
-      title: form.value.title,
-      content: form.value.content,
-    };
-    this.postCreated.emit(post);
+    this.postsService.addPost(form.value.title, form.value.content )
   }
 }

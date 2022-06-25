@@ -41,11 +41,8 @@ import {PostService} from './posts/posts.service';
     BrowserAnimationsModule,
     MatExpansionModule
   ],
-  providers: [
-
-  ],
-  bootstrap: [
-    AppComponent],
+  providers: [],
+  bootstrap: [AppComponent,PostService],
 
 })
 

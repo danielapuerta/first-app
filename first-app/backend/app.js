@@ -5,8 +5,8 @@ app.use((req, res, next) =>{
   next();
 });
 
-app.use((req, res, next) =>{
-   res.send('Hello from express');
+app.use('/api/posts', (req, res, next) =>{
+  res.send('Hello from express');
 });
 
 module.exports = app;

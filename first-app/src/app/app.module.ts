@@ -19,6 +19,7 @@ import{PostListComponent} from "./posts/post-list/post-list.component";
 import{MatExpansionModule}from '@angular/material/expansion';
 
 import {PostService} from './posts/posts.service';
+import{HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {PostService} from './posts/posts.service';
     MatIconModule,
     MatCardModule,
     BrowserAnimationsModule,
-    MatExpansionModule
+    MatExpansionModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent,PostService],

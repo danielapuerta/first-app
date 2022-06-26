@@ -1,4 +1,5 @@
-import {Component, Input, OnInit} from "@angular/core";
+import {Component, OnInit} from "@angular/core";
+import { subscribeOn, Subscription } from "rxjs";
 import {Post} from '../post.model';
 import{PostService} from '../posts.service';
 
@@ -15,10 +16,19 @@ export class PostListComponent implements OnInit{
     ];*/
 
     //create an empty array
-    @Input()posts : Post[] = [];
+    posts : Post[] = [];
+    private PostSub : Subscription;
     constructor(public postsService: PostService){}
 
     ngOnInit(){
-      this.posts=this.postsService.getPosts();
+      this.postsService.getPosts();
+      this.PostSub=this.postsService.getPostUpdateListener();
+      subscribe((posts : Post[])=>{
+
+      });
+
+    }
+    ngOnDestroy(){
+      this.PostSub.unsubscribe();
     }
 }

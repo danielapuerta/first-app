@@ -10,14 +10,21 @@ export class PostService {
 
   constructor(private http: HttpClient) {}
   getPosts() {
-    this.http.get<{message: string, posts: Post[] }>('http://localhost:3000/api/posts')  
-    .subscribe(()=>{   
-        
-    });
+    this.http
+      .get<{ message: string; posts: Post[] }>('http://localhost:3000/api/posts')
+      .subscribe((PostData) => {
+        this.posts = PostData.posts;
+        this.postUpdated.next([...this.posts]);
+      });
+  }
+
+  getPostUpdateListenetr() {
+    return this.postUpdated.asObservable();
   }
 
   addPost(title: string, content: string) {
-    const post: Post = { title: title, content: content };
+    const post: Post = { id: null, title: title, content: content };
     this.posts.push(post);
+    this.postUpdated.next([...this.posts]);
   }
 }

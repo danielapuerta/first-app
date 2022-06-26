@@ -6,7 +6,10 @@ app.use((req, res, next) =>{
 });
 
 app.use('/api/posts', (req, res, next) =>{
-  res.send('Hello from express');
+  const posts = [
+
+  ];
+  res.json();
 });
 
 module.exports = app;
